@@ -1,9 +1,9 @@
-project_id                  = "cloudgcp41-admin"
+project_id                  = "cloudgcp41-foundations-test"
 service_account_name         = "cloud-composer-3-test"
 service_account_display_name = "cloud-composer-3-test"
 composer_environment_name    = "cloud-composer-3-test-2"
 
-composer_bucket_name     = "cloudgcp41-admin-dags"
+composer_bucket_name     = "cloudgcp41-foundations-test-dags"
 composer_bucket_location = "europe-west3"  # Optional, defaults to region
 
 composer_bucket_iam_bindings = [
