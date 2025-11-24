@@ -1,7 +1,7 @@
-variable "gcp_project" {
+variable "project_id" {
   type = string
 }
-variable "gcp_region" {
+variable "region" {
   type    = string
   default = "europe-west3"
 }
@@ -28,7 +28,7 @@ variable "composer_bucket_name" {
 
 variable "composer_bucket_location" {
   type        = string
-  description = "Location for the Cloud Composer storage bucket. Defaults to gcp_region if not specified."
+  description = "Location for the Cloud Composer storage bucket. Defaults to region if not specified."
   default     = null
 }
 

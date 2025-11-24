@@ -1,6 +1,6 @@
 resource "google_project_iam_member" "cloud_composer" {
   member  = "serviceAccount:${google_service_account.cloud_composer.email}"
-  project = var.gcp_project
+  project = var.project_id
   role    = "roles/composer.worker"
 }
 
@@ -11,13 +11,13 @@ resource "google_service_account" "cloud_composer" {
 
 resource "google_storage_bucket" "composer_bucket" {
   name     = var.composer_bucket_name
-  location = var.composer_bucket_location != null ? var.composer_bucket_location : var.gcp_region
-  project  = var.gcp_project
+  location = var.composer_bucket_location != null ? var.composer_bucket_location : var.region
+  project  = var.project_id
 }
 
 resource "google_composer_environment" "cloud_composer" {
   name   = var.composer_environment_name
-  region = var.gcp_region
+  region = var.region
   config {
     enable_private_environment = true
 
