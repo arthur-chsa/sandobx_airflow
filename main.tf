@@ -21,10 +21,6 @@ resource "google_composer_environment" "cloud_composer" {
   config {
     enable_private_environment = true
 
-    storage_config {
-      bucket = google_storage_bucket.composer_bucket.name
-    }
-
     software_config {
       airflow_config_overrides = {
         # By enabling this, Airflow will create roles per folder inside the GCS bucket
@@ -37,6 +33,10 @@ resource "google_composer_environment" "cloud_composer" {
     node_config {
       service_account = google_service_account.cloud_composer.name
     }
+  }
+
+  storage_config {
+    bucket = google_storage_bucket.composer_bucket.name
   }
 
   depends_on = [google_storage_bucket.composer_bucket]
