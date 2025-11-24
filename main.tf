@@ -13,6 +13,7 @@ resource "google_storage_bucket" "composer_bucket" {
   name     = var.composer_bucket_name
   location = var.composer_bucket_location != null ? var.composer_bucket_location : var.region
   project  = var.project_id
+  force_destroy = true
 }
 
 resource "google_composer_environment" "cloud_composer" {
